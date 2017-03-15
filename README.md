@@ -25,6 +25,7 @@ We need our own NetDisk. Here we are!
 Soon!
 
 ## Installation & Preparation
+`$ brew install node`
 
 ### 1. Register Qiniu Storage Provider
 [Register a free Qiniu account](http://www.qiniu.com/). Then create a new bucket.
@@ -36,7 +37,10 @@ Take bucket name down, then get accessKey and secretKey.
 
 ![](http://7xr586.com1.z0.glb.clouddn.com/images/7625i.jpg)
 
-Take accessKey, secretKey and bucket name down, we will use it when config rocket :P.
+Finally, get your domain:
+![](http://7xr586.com1.z0.glb.clouddn.com/images/uijo8.jpg)
+
+Take accessKey, secretKey domain and bucket name down, we will use it when config rocket :P.
 
 ### 2. CLI
 
@@ -76,7 +80,7 @@ If the config file already exists, you can use `-o` or `-overwrite` options to o
 The config file locates at `~/.rocket.json`.
 
 ### Config storage provider
-`$ rocket config -b <your bucket name> -a <your accessKey> -s <your secretKey>`
+`$ rocket config -b <your bucket name> -a <your accessKey> -s <your secretKey> -d <domain>`
 
 ### Add files to local index
 `$ rocket add -d <directory> -r -f <regex expression>`
