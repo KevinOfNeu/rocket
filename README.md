@@ -25,7 +25,6 @@ We need our own NetDisk. Here we are!
 Soon!
 
 ## Installation & Preparation
-[![NPM](https://nodei.co/npm/rocket-cli.png)](https://nodei.co/npm/rocket-cli/)
 
 ### 1. Register Qiniu Storage Provider
 [Register a free Qiniu account](http://www.qiniu.com/). Then create a new bucket.
