@@ -27,7 +27,7 @@ Soon!
 ## Installation & Preparation
 `$ brew install node`
 
-### 1. Register Qiniu Storage Provider
+### 1. Register Qiniu storage provider
 [Register a free Qiniu account](http://www.qiniu.com/). Then create a new bucket.
 ![](http://7xr586.com1.z0.glb.clouddn.com/images/mjqq2.jpg)
 
@@ -89,7 +89,7 @@ The config file locates at `~/.rocket.json`.
 
 `-f` can set filters using regex expression, use `.` for all files.
 
-### Push files in local index to Cloud
+### Push files in local index to cloud
 
 `$ rocket push -m [max upload workers. defailt = 5]`
 

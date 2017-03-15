@@ -24,7 +24,7 @@ program
 
 program
   .command('config')
-  .description('Config Qiniu bucket, access key and secret key')
+  .description('Config Qiniu bucket, domain, access key and secret key')
   .option('-b, --bucket <value>', 'Qiniu Bucket')
   .option('-a, --accessKey <value>', 'Qiniu AccessKey')
   .option('-s, --secretKey <value>', 'Qiniu SecretKey')
