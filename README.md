@@ -113,7 +113,7 @@ You can use `-o` and `-l` to set proper offset and limit if there are too much f
 - [ ] Support multi config file.
 - [ ] Code refactor.
 - [ ] Support multi object storage provider.
-- [] Test case needed.
+- [ ] Test case needed.
 
 ## Contribute
 PR and issues are welcomed! Join and make it better!
