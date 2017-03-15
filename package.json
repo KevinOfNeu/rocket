@@ -1,6 +1,6 @@
 {
   "name": "rocket-cli",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "Pure command line tool to replace Baidu('百毒') NetDisk or other NetDisk with this COOL shit!",
   "main": "./bin/rocket.js",
   "scripts": {
@@ -19,7 +19,7 @@
     "pan"
   ],
   "bin": {
-    "rocket": "./bin/rocket"
+    "rocket": "bin/rocket"
   },
   "author": "KevinOfNeu",
   "license": "MIT",
