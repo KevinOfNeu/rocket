@@ -1,0 +1,121 @@
+#!/usr/bin/env node
+var
+  program = require('commander'),
+  packageInfo = require('../package.json');
+
+var handlers = require('../lib/handler/Handler');
+var util = require('../lib/util');
+
+program
+  .command('init')
+  .description('Init config file')
+  .option('-o, --overwrite [value]', 'Overwrite old config files')
+  .action(function (options) {
+    handlers.handleInit(options)
+      .then(function (res) {
+        util.logSuccess('Init succeed! \n' + res);
+      })
+      .catch(function (err) {
+        util.logError('Init failed! \n' + err.toString());
+        process.exit(1);
+      });
+  });
+
+
+program
+  .command('config')
+  .description('Config Qiniu bucket, access key and secret key')
+  .option('-b, --bucket <value>', 'Qiniu Bucket')
+  .option('-a, --accessKey <value>', 'Qiniu AccessKey')
+  .option('-s, --secretKey <value>', 'Qiniu SecretKey')
+  .option('-d, --domain <value>', 'Qiniu domain')
+  .action(function (options) {
+    handlers.handleConfig(options)
+      .then(function (res) {
+        util.logSuccess('Config Success! \n' + res);
+      })
+      .catch(function (ex) {
+        util.logError('Config Failed!\n' + ex);
+        process.exit(1);
+      });
+  });
+
+program
+  .command('add')
+  .description('Add dir or files to index')
+  .option('-d, --dir [value]', 'dir, default current dir')
+  .option('-r, --recursive [value]', 'recursive dirs, default no recursive')
+  .option('-f, --filter [value]', 'regex filter, default all files of dir')
+  .action(function (options) {
+    handlers.handleAdd(options)
+      .then(function (res) {
+        util.logSuccess(res);
+      })
+      .catch(function (ex) {
+        util.logError('Add file(s) failed! \n' + ex);
+      });
+  });
+
+program
+  .command('push')
+  .description('Push files to Qiniu cloud')
+  .option('-m, --maxWorkers [value]', 'max concurent upload workers, default 5')
+  .action(function (options) {
+    handlers.handlePush(options)
+      .then(function (res) {
+        util.logSuccess(res);
+      })
+      .catch(function (ex) {
+        util.logError(ex);
+        process.exit(1);
+      });
+  });
+
+program
+  .command('ls')
+  .description('List files from local index')
+  .option('-o, --offset [value]', 'offset, default 0')
+  .option('-l, --limit [value]', 'limit, default all data long')
+  .action(function (options) {
+    handlers.handleLs(options)
+      .then(function (res) {
+        util.logSuccess(res);
+      })
+      .catch(function (ex) {
+        util.logError('List file(s) failed!', ex);
+        process.exit(1);
+      });
+  });
+
+program
+  .command('pull')
+  .description('Pull files from Qiniu cloud')
+  .option('-d, --dir [value]', 'dir, default current dir')
+  .option('-f, --filter [value]', 'regex filter, default is all files')
+  .action(function (options) {
+    handlers.handlePull(options)
+      .then(function (res) {
+        util.logSuccess(res);
+      })
+      .catch(function (ex) {
+        util.logError('Pull file(s) from cloud failed!', ex);
+      });
+  });
+
+program
+  .command('doctor')
+  .description('Analyze whether there is a problem and reasons!')
+  .action(function (options) {
+    handlers.handleDoctor(options)
+      .then(function (res) {
+        util.logError(res);
+      })
+      .catch(function (ex) {
+        util.logError('Doctor is dead also...', ex);
+      });
+  });
+
+program
+  .version(packageInfo.version)
+  .parse(process.argv);
+

@@ -1,0 +1,42 @@
+{
+  "name": "rocket-cli",
+  "version": "0.0.1",
+  "description": "Pure command line tool to replace Baidu('百毒') NetDisk or other NetDisk with this COOL shit!",
+  "main": "./bin/rocket.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KevinOfNeu/rocket.git"
+  },
+  "keywords": [
+    "rocket",
+    "Baidu",
+    "CLI",
+    "NetDisk",
+    "qiuniu",
+    "pan"
+  ],
+  "bin": {
+    "rocket": "./bin/rocket"
+  },
+  "author": "KevinOfNeu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KevinOfNeu/rocket/issues"
+  },
+  "homepage": "https://github.com/KevinOfNeu/rocket#readme",
+  "dependencies": {
+    "cli-table": "^0.3.1",
+    "colors": "^1.1.2",
+    "commander": "^2.9.0",
+    "cuid": "^1.3.8",
+    "moment": "^2.17.1",
+    "nedb": "^1.8.0",
+    "ora": "^1.1.0",
+    "promise": "^7.1.1",
+    "qiniu": "^6.1.13",
+    "thunk-workers": "^1.1.1"
+  }
+}
