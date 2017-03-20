@@ -23,19 +23,19 @@ program
 
 
 program
-  .command('config')
+  .command('config [show]')
   .description('Config Qiniu bucket, domain, access key and secret key')
   .option('-b, --bucket <value>', 'Qiniu Bucket')
   .option('-a, --accessKey <value>', 'Qiniu AccessKey')
   .option('-s, --secretKey <value>', 'Qiniu SecretKey')
   .option('-d, --domain <value>', 'Qiniu domain')
-  .action(function (options) {
-    handlers.handleConfig(options)
+  .action(function (show, options) {
+    handlers.handleConfig(show, options)
       .then(function (res) {
-        util.logSuccess('Config Success! \n' + res);
+        util.logSuccess(res);
       })
       .catch(function (ex) {
-        util.logError('Config Failed!\n' + ex);
+        util.logError(ex);
         process.exit(1);
       });
   });
@@ -82,36 +82,22 @@ program
         util.logSuccess(res);
       })
       .catch(function (ex) {
-        util.logError('List file(s) failed!', ex);
+        util.logError('List file(s) failed! \n' + ex);
         process.exit(1);
       });
   });
 
 program
-  .command('pull')
-  .description('Pull files from Qiniu cloud')
-  .option('-d, --dir [value]', 'dir, default current dir')
-  .option('-f, --filter [value]', 'regex filter, default is all files')
-  .action(function (options) {
-    handlers.handlePull(options)
+  .command('pull <key>')
+  .description('Pull file from Qiniu cloud')
+  .option('-d, --dest [value]', 'destination dir, default value: uploaded dir')
+  .action(function (key, options) {
+    handlers.handlePull(key, options)
       .then(function (res) {
         util.logSuccess(res);
       })
       .catch(function (ex) {
-        util.logError('Pull file(s) from cloud failed!', ex);
-      });
-  });
-
-program
-  .command('doctor')
-  .description('Analyze whether there is a problem and reasons!')
-  .action(function (options) {
-    handlers.handleDoctor(options)
-      .then(function (res) {
-        util.logError(res);
-      })
-      .catch(function (ex) {
-        util.logError('Doctor is dead also...', ex);
+        util.logError('Pull file(s) from cloud failed! \n' + ex);
       });
   });
 
