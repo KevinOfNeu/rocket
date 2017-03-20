@@ -6,7 +6,7 @@ Rocket
 
 ![logo](./rocket.png)
 
-Self host netdist, pure command line tool to to sync files to Qiniu cloud.
+Self hosted netdisk, pure command line tool to to pull or pull  files with Qiniu cloud.
 
 ## Features
 - Fully command line operation!
